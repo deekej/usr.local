@@ -1,0 +1,5 @@
+#!/bin/bash
+
+CURRENT_LAYOUT=$(localectl | grep "X11 Layout" | cut -d ':' -f 2)
+
+gkbd-keyboard-display -l $CURRENT_LAYOUT &

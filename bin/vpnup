@@ -1,0 +1,49 @@
+#!/bin/bash
+
+PROG_NAME="$(basename "${0}")"
+
+if [[ ${EUID} != 117813 ]]; then
+  echo "${PROG_NAME}: Only user 'deekej' can establish VPN connection"
+  exit 1
+fi
+
+HOME_FOLDER='/home/deekej'
+PASS_STORE='redhat'
+VPN_PASS=".password-store/${PASS_STORE}/.vpnpass"
+
+if [[ -n "${1}" ]]; then
+  VPN_POINT="$(echo "${1}" | tr '[:lower:]')"
+
+  case "${VPN_POINT}" in
+    glob*)
+      VPN_POINT='Global'
+      ;;
+
+    brq|brno)
+      VPN_POINT='Brno'
+      ;;
+
+    ams*)
+      VPN_POINT='Amsterdam'
+      ;;
+
+    *)
+      echo "${PROG_NAME}: Unknown VPN point: ${1}" >&2
+      exit 1
+      ;;
+  esac
+else
+  VPN_POINT='Brno'
+fi
+
+cd "${HOME_FOLDER}" || {
+  echo "${PROG_NAME}: Failed to change directory to: ${HOME_FOLDER}" >&2
+  exit 2
+}
+
+VPN_PIN="$(pass     "${PASS_STORE}/vpn-pin")"
+VPN_OTP="$(pass otp "${PASS_STORE}/vpn-token")"
+
+echo "vpn.secrets.password:${VPN_PIN}${VPN_OTP}" > "${VPN_PASS}"
+
+nmcli con up id "Red Hat | ${VPN_POINT}" passwd-file "${VPN_PASS}"

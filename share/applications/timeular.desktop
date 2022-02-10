@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Timeular
+Comment=Timeular Tracking Software
+TryExec=timeular
+Exec=env DRI_PRIME=1 QT_QPA_PLATFORM=xcb timeular
+StartupNotify=false
+Terminal=false
+Icon=/usr/local/share/icons/timeular.png

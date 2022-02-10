@@ -1,0 +1,14 @@
+#!/bin/bash
+builtin pushd "$@"
+
+# ------------------------------------------------------------------------------
+
+# NOTE: The functions should be already sourced from /etc/profile or /etc/bashrc.
+# Update the PS1 if we are in a folder with accessible git repository:
+if _git_repo; then
+  _git_update_prompt
+else
+  _git_reset_prompt
+fi
+
+# ------------------------------------------------------------------------------

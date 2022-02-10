@@ -1,0 +1,38 @@
+#!/bin/bash
+
+export APP="/usr/bin/gvim --servername GVIMDIFF.${USER} -d"
+export APP_NAME="GVIMDIFF.${USER}"
+
+function launch_app() {
+  export DRI_PRIME=1
+  ${APP} "${@}"
+}
+
+# Switch to workspace containg the application,
+# raise it forward and bring it into focus.
+function switch_and_raise_forward() {
+  if [ -n "${DISPLAY}" ]; then
+    wmctrl -a ${APP_NAME} || : # Some applications can't be found by wmctrl.
+  fi
+}
+
+# -----------------------------------------------------------------------------
+
+case "${1}" in
+  --*help*|--*version*|--license|-h|-v)
+      ${APP} "${@}" && exit 0
+      ;;
+
+  --*|-*)
+      switch_and_raise_forward
+      launch_app "${@}"
+      ;;
+  *)
+      switch_and_raise_forward
+
+      if ! pgrep -G "${USER}" -f '/usr/bin/gvim' &> /dev/null; then
+        launch_app "${@}"
+      elif [[ -n "${*}" ]]; then
+        launch_app --remote-tab-silent "${@}"
+      fi
+esac

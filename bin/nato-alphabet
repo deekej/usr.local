@@ -1,0 +1,16 @@
+#!/bin/sh
+
+printf "\
+A - Alfa        K - Kilo        U - Uniform     0 - ZE-RO
+B - Bravo       L - Lima        V - Victor      1 - WUN
+C - Charlie     M - Mike        W - Whiskey     2 - TOO
+D - Delta       N - November    X - X-ray       3 - TREE
+E - Echo        O - Oscar       Y - Yankee      4 - FOW-ER
+F - Foxtrot     P - Papa        Z - Zulu        5 - FIFE
+G - Golf        Q - Quebec      . - STOP        6 - SIX
+H - Hotel       R - Romeo       . - DAY-SEE-MAL 7 - SEV-EN
+I - India       S - Sierra    100 - HUN-dred    8 - AIT
+J - Juliett     T - Tango    1000 - TOU-SAND    9 - NIN-ER
+"
+
+exit 0

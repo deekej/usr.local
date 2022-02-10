@@ -1,0 +1,50 @@
+#!/bin/bash
+# File located in: /usr/bin folder.
+# To enable mint-fortunes in terminal, run this command:
+# 'gsettings set com.linuxmint.terminal show-fortunes true'
+
+function show_fortune {
+    RANGE=6
+    number=$RANDOM
+    let "number %= $RANGE"
+    case $number in
+        0)
+            cow="eyes"
+            ;;
+
+        1)
+            cow="koala"
+            ;;
+
+        2)
+            cow="moose"
+            ;;
+
+        3)
+            cow="small"
+            ;;
+
+        4)
+            cow="tux"
+            ;;
+
+        5)
+            cow="www"
+            ;;
+    esac
+
+    RANGE=2
+    number=$RANDOM
+    let "number %= $RANGE"
+    case $number in
+        0)
+            command="/usr/bin/cowsay"
+            ;;
+        1)
+            command="/usr/bin/cowthink"
+            ;;
+    esac
+    /usr/bin/fortune | $command -f $cow
+}
+
+show_fortune
