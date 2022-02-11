@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec gtk-launch org.gnome.Screenshot.desktop

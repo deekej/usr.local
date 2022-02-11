@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec gtk-launch google-chat.desktop

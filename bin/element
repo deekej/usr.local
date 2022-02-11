@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec gtk-launch im.riot.Riot.desktop
