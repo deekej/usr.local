@@ -41,6 +41,17 @@ cd "${HOME_FOLDER}" || {
   exit 2
 }
 
+# Kill qbittorrent if it is running:
+if pidof -q qbittorrent; then
+  killall qbittorrent
+  sleep 2
+
+  if pidof -q qbittorrent; then
+    echo "${PROG_NAME}: Failed to stop qbittorrent application. Terminating..." >&2
+    exit 2
+  fi
+fi
+
 VPN_PIN="$(pass     "${PASS_STORE}/vpn-pin")"
 VPN_OTP="$(pass otp "${PASS_STORE}/vpn-token")"
 
