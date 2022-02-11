@@ -5,7 +5,7 @@ export APP_NAME="GVIMDIFF.${USER}"
 
 function launch_app() {
   export DRI_PRIME=1
-  ${APP} "${@}"
+  exec ${APP} "${@}"
 }
 
 # Switch to workspace containg the application,
