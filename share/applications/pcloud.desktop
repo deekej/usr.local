@@ -3,9 +3,9 @@ Name=pCloud
 Comment=pCloud Drive Client
 TryExec=pcloud
 Exec=env DRI_PRIME=1 QT_QPA_PLATFORM=xcb pcloud %U
-Terminal=false
-Type=Application
 Icon=/usr/local/share/icons/pcloud.svg
+Type=Application
 StartupWMClass=pcloud
-X-AppImage-Version=1.9.8
+StartupNotify=false
+Terminal=false
 Categories=Network;
