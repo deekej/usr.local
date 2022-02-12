@@ -1,14 +1,14 @@
 #!/bin/bash
 
 if pgrep -x 'tilix' &> /dev/null; then
-  tilix --quake --session='~/.config/tilix/quake.json'
+  exec tilix --quake --session='~/.config/tilix/quake.json'
 else
   export DRI_PRIME=1
   export GDK_BACKEND=x11
 
   if [[ "${1}" == '--hidden' ]]; then
-    tilix --quake --session='~/.config/tilix/quake.json' -e 'tilix --quake' &
+    exec tilix --quake --session='~/.config/tilix/quake.json' -e 'tilix --quake' &
   else
-    tilix --quake --session='~/.config/tilix/quake.json' &
+    exec tilix --quake --session='~/.config/tilix/quake.json' &
   fi
 fi
