@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DARK_THEME='Arc-Dark'
+DARK_ICONS='Mint-Y-Dark-Aqua'
+LIGHT_THEME='Arc-Lighter'
+LIGHT_ICONS='Mint-Y-Aqua'
+
+# Get the current theme:
+CURRENT_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"
+
+if [[ "${CURRENT_THEME}" == "${DARK_THEME}" ]]; then
+  gsettings set org.gnome.desktop.interface gtk-theme "${LIGHT_THEME}"
+  gsettings set org.gnome.desktop.interface icon-theme "${LIGHT_ICONS}"
+else
+  gsettings set org.gnome.desktop.interface gtk-theme "${DARK_THEME}"
+  gsettings set org.gnome.desktop.interface icon-theme "${DARK_ICONS}"
+fi
+
+exit 0
