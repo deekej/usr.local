@@ -2,7 +2,7 @@
 Name=pCloud
 Comment=pCloud Drive Client
 TryExec=pcloud
-Exec=env DRI_PRIME=1 QT_QPA_PLATFORM=xcb pcloud %U
+Exec=pcloud %U
 Icon=/usr/local/share/icons/pcloud.svg
 Type=Application
 StartupWMClass=pcloud

@@ -2,7 +2,7 @@
 Version=1.5
 Name=Telegram
 Comment=Official desktop version of Telegram IM
-Exec=env DRI_PRIME=1 QT_QPA_PLATFORM=xcb /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=telegram-desktop --file-forwarding org.telegram.desktop -- @@u %u @@
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=telegram-desktop --file-forwarding org.telegram.desktop -- @@u %u @@
 Icon=/usr/local/share/icons/telegram.svg
 Terminal=false
 StartupWMClass=TelegramDesktop
@@ -17,6 +17,6 @@ X-GNOME-SingleWindow=true
 X-Flatpak=org.telegram.desktop
 
 [Desktop Action Quit]
-Exec=env DRI_PRIME=1 QT_QPA_PLATFORM=xcb /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=telegram-desktop org.telegram.desktop -quit
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=telegram-desktop org.telegram.desktop -quit
 Name=Quit Telegram
 Icon=application-exit

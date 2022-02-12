@@ -64,7 +64,7 @@ Comment[zh_CN]=管理虚拟系统
 Comment[zh_TW]=管理虛擬系統
 Comment=Manage virtual machines
 Icon=/usr/local/share/icons/virt-manager.png
-Exec=env DRI_PRIME=1 virt-manager
+Exec=virt-manager
 Type=Application
 Terminal=false
 Categories=System;
