@@ -3,7 +3,7 @@ Type=Application
 Name=Spotify
 GenericName=Online music streaming service
 Comment=Access all of your favorite music
-Icon=com.spotify.Client
+Icon=/usr/local/share/icons/spotify.png
 Exec=env DRI_PRIME=1 QT_QPA_PLATFORM=xcb /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=spotify --file-forwarding com.spotify.Client @@u %U @@
 Terminal=false
 MimeType=x-scheme-handler/spotify;

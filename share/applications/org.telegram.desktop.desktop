@@ -3,7 +3,7 @@ Version=1.5
 Name=Telegram
 Comment=Official desktop version of Telegram IM
 Exec=env DRI_PRIME=1 QT_QPA_PLATFORM=xcb /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=telegram-desktop --file-forwarding org.telegram.desktop -- @@u %u @@
-Icon=org.telegram.desktop
+Icon=/usr/local/share/icons/telegram.svg
 Terminal=false
 StartupWMClass=TelegramDesktop
 Type=Application

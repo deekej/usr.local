@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name=HexChat
+GenericName=IRC Client
+Comment=Chat with other people online
+Keywords=IM;Chat;
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=hexchat --file-forwarding io.github.Hexchat --existing @@u %U @@
+Icon=/usr/local/share/icons/hexchat.svg
+Terminal=false
+Type=Application
+Categories=GTK;Network;IRCClient;
+StartupNotify=true
+StartupWMClass=Hexchat
+X-GNOME-UsesNotifications=true
+MimeType=x-scheme-handler/irc;x-scheme-handler/ircs;
+Actions=SafeMode;
+X-Flatpak=io.github.Hexchat
+
+[Desktop Action SafeMode]
+Name=Open Safe Mode
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=hexchat io.github.Hexchat --no-auto --no-plugins
