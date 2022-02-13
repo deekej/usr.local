@@ -5,7 +5,14 @@ export APP_NAME="GVIM.${USER}"
 
 function launch_app() {
   export DRI_PRIME=1
-  exec ${APP} "${@}"
+  ${APP} "${@}"
+
+}
+
+function maximize_app() {
+  sleep 0.3
+  wmctrl -r "${APP_NAME}" -b add,maximized_vert
+  wmctrl -r "${APP_NAME}" -b add,maximized_horz
 }
 
 # Switch to workspace containg the application,
@@ -23,15 +30,22 @@ case "${1}" in
       ${APP} "${@}" && exit 0
       ;;
 
+  -f|--nofork)
+      switch_and_raise_forward
+      launch_app "${@}"
+      ;;
+
   --*|-*)
       switch_and_raise_forward
       launch_app "${@}"
+      maximize_app
       ;;
   *)
       switch_and_raise_forward
 
       if ! pgrep -G "${USER}" -f '/usr/bin/gvim' &> /dev/null; then
         launch_app "${@}"
+        maximize_app
       elif [[ -n "${*}" ]]; then
         launch_app --remote-tab-silent "${@}"
       fi
