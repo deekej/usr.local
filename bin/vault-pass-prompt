@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+if [[ -x /usr/bin/pass && -r ~/.password-store/redhat ]]; then
+  pass show redhat/ansible-vault
+else
+  zenity --password --title='Ansible Vault Password'
+fi
