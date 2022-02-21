@@ -4,9 +4,9 @@
 IP_ADDR='1.1.1.1'
 
 if [[ $# -eq 0 ]]; then
-  ping -c 5 "${IP_ADDR}"
+  /usr/bin/ping -c 5 "${IP_ADDR}"
 elif [[ $# -eq 1 && "$1" == "-t" ]]; then
-  ping "${IP_ADDR}"
+  /usr/bin/ping "${IP_ADDR}"
 else
   if [[ $# -eq 2 && "$1" == "-t" ]]; then
     PARAMS="$2"
@@ -18,11 +18,12 @@ else
 
   if [[ $? -eq 0 ]]; then
     if [[ "$1" == "-t" ]]; then
-      ping "${PARAMS}"
+      /usr/bin/ping "${PARAMS}"
     else
-      ping -c 5 "${PARAMS}"
+      /usr/bin/ping -c 5 "${PARAMS}"
     fi
   else
-    ping $@
+    /usr/bin/ping $@
   fi
 fi
+
