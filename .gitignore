@@ -1,3 +1,18 @@
 bin/pcloud
 bin/timeular
 share/applications/mimeinfo.cache
+
+# Files created by update-mime-database:
+share/applications/packages/*
+share/applications/aliases
+share/applications/generic-icons
+share/applications/globs
+share/applications/globs2
+share/applications/icons
+share/applications/magic
+share/applications/mime.cache
+share/applications/subclasses
+share/applications/treemagic
+share/applications/types
+share/applications/version
+share/applications/XMLnamespaces
