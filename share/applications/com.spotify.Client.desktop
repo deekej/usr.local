@@ -4,7 +4,7 @@ Name=Spotify
 GenericName=Online music streaming service
 Comment=Access all of your favorite music
 Icon=/usr/local/share/icons/spotify.png
-Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=spotify --file-forwarding  com.spotify.Client --force-device-scale-factor=1.2 @@u %U @@
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=spotify --file-forwarding  com.spotify.Client --force-device-scale-factor=1.5 @@u %U @@
 Terminal=false
 MimeType=x-scheme-handler/spotify;
 Categories=Audio;Music;Player;AudioVideo;
