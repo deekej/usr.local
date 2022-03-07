@@ -1,0 +1,34 @@
+#!/bin/bash
+
+GIT_USER_REPOS=(
+    /home/deekej/.bash
+    /home/deekej/.config/git
+    /home/deekej/.profile.d
+    /home/deekej/.vim
+    /home/deekej/.ssh
+    /home/deekej/.zsh
+  )
+
+GIT_ROOT_REPOS=(
+    /etc/profile.d
+    /root
+    /usr/local
+  )
+
+for folder in ${GIT_USER_REPOS[@]}; do
+  if [[ -d "${folder}" ]]; then
+    git -C "${folder}" pull --force --quiet
+    git -C "${folder}" submodule update --remote --recursive --force --quiet
+
+    echo "Configuration updated: ${folder}"
+  fi
+done
+
+for folder in ${GIT_ROOT_REPOS[@]}; do
+  if [[ -d "${folder}" ]]; then
+    sudo git -C "${folder}" pull --force --quiet
+    sudo git -C "${folder}" submodule update --remote --recursive --force --quiet
+
+    echo "Configuration updated: ${folder}"
+  fi
+done
