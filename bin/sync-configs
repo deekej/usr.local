@@ -17,6 +17,7 @@ GIT_ROOT_REPOS=(
 
 for folder in ${GIT_USER_REPOS[@]}; do
   if [[ -d "${folder}" ]]; then
+    git -C "${folder}" stash --include-untracked --quiet
     git -C "${folder}" pull --force --quiet
     git -C "${folder}" submodule update --remote --recursive --force --quiet
 
@@ -26,6 +27,7 @@ done
 
 for folder in ${GIT_ROOT_REPOS[@]}; do
   if [[ -d "${folder}" ]]; then
+    sudo git -C "${folder}" stash --include-untracked --quiet
     sudo git -C "${folder}" pull --force --quiet
     sudo git -C "${folder}" submodule update --remote --recursive --force --quiet
 
