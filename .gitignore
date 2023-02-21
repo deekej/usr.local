@@ -1,18 +1,10 @@
-bin/pcloud
-bin/timeular
-share/applications/mimeinfo.cache
+# Ignore everyting by default:
+*
+.*
 
-# Files created by update-mime-database:
-share/applications/packages/*
-share/applications/aliases
-share/applications/generic-icons
-share/applications/globs
-share/applications/globs2
-share/applications/icons
-share/applications/magic
-share/applications/mime.cache
-share/applications/subclasses
-share/applications/treemagic
-share/applications/types
-share/applications/version
-share/applications/XMLnamespaces
+# Manually add files for tracking:
+! share/applications/packages/.gitkeep
+! share/applications/*.desktop
+! share/backgrounds/*
+! share/fonts/*
+! share/icons/*
