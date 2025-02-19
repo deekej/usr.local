@@ -2,7 +2,7 @@
 
 PROG_NAME="$(basename "${0}")"
 
-if [[ ${EUID} != 117813 ]]; then
+if [[ ${EUID} != 117813 || $(whoami) != deekej ]]; then
   echo "${PROG_NAME}: Only user 'deekej' can establish VPN connection"
   exit 1
 fi
@@ -25,6 +25,10 @@ if [[ -n "${1}" ]]; then
 
     ams*)
       VPN_POINT='Amsterdam'
+      ;;
+
+    rdu|ral*)
+      VPN_POINT='Raleigh'
       ;;
 
     *)
@@ -58,3 +62,5 @@ VPN_OTP="$(pass otp "${PASS_STORE}/vpn-token")"
 echo "vpn.secrets.password:${VPN_PIN}${VPN_OTP}" > "${VPN_PASS}"
 
 nmcli con up id "Red Hat | ${VPN_POINT}" passwd-file "${VPN_PASS}"
+
+sleep 1 && rm -f "${VPN_PASS}"

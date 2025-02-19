@@ -7,12 +7,13 @@ GIT_USER_REPOS=(
     /home/deekej/.vim
     /home/deekej/.ssh
     /home/deekej/.zsh
+    /home/deekej
   )
 
 GIT_ROOT_REPOS=(
     /etc/profile.d
-    /root
     /usr/local
+    /root
   )
 
 for folder in ${GIT_USER_REPOS[@]}; do

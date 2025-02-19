@@ -1,9 +1,9 @@
 #!/bin/bash
 
-DARK_THEME='Arc-Dark'
-DARK_ICONS='Mint-Y-Dark-Aqua'
-LIGHT_THEME='Arc-Lighter'
-LIGHT_ICONS='Mint-Y-Aqua'
+DARK_THEME='Flat-Remix-GTK-Violet-Dark'
+DARK_ICONS='Flat-Remix-Violet-Dark'
+LIGHT_THEME='Flat-Remix-GTK-Violet-Light'
+LIGHT_ICONS='Flat-Remix-Violet-Light'
 
 # Get the current theme:
 CURRENT_THEME="$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")"

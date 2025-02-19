@@ -1,3 +1,0 @@
-#!/bin/bash
-
-exec gtk-launch google-chrome.desktop
