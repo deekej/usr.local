@@ -1,1 +1,3 @@
-/usr/bin/gnome-tweaks
+#!/bin/bash
+
+exec /usr/bin/gnome-tweaks 2> /dev/null &

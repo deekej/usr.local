@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec gtk-launch org.gimp.GIMP.desktop
+exec gtk-launch org.gimp.GIMP.desktop "${@}" 2> /dev/null

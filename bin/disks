@@ -1,1 +1,3 @@
-/usr/bin/gnome-disks
+#!/bin/bash
+
+exec /usr/bin/gnome-disks 2> /dev/null &

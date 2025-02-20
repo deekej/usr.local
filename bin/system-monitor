@@ -1,1 +1,3 @@
-/usr/bin/gnome-system-monitor
+#!/bin/bash
+
+exec /usr/bin/gnome-system-monitor 2> /dev/null &

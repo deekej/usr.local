@@ -1,3 +1,1 @@
-#!/bin/bash
-
-exec gtk-launch org.gnome.Calculator.desktop
+calculator
