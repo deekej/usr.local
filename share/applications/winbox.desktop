@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=WinBox
+Comment=Mikrotik Devices Management Tool
+TryExec=winbox
+Exec=winbox %U
+Icon=/usr/local/share/icons/winbox.png
+Type=Application
+StartupWMClass=winbox
+StartupNotify=false
+Terminal=false
+Categories=Network;
